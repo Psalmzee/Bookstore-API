@@ -51,11 +51,11 @@ bookRoute.put("/:id", (req, res) => {
     const id = req.params.id
     console.log(id)
     const book = req.body
-    console.log(body)
 
     book.lastUpdateAt = new Date() //set lastUpdateAt to the current date
     bookModel.findByIdAndUpdate(id, book, { new: true })
         .then((book) => {
+            console.log(book)
             res.status(200).send(book)
         }).catch((err) => {
             console.log(err)
